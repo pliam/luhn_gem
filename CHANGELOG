@@ -1,0 +1,15 @@
+
+= CHANGELOG
+
+
+== Releases 0.3 (5), Tue Sep 23 17:15:13 PDT 2008
+
+* initial github release
+* working class methods: generate, checksum, checksum_valid?
+* unit tests working
+
+
+== Releases 0.1 - 0.2
+
+* local "releases" to test gem install <localgem.gem>
+

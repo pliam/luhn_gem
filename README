@@ -1,0 +1,38 @@
+
+= Luhn Gem
+
+Luhn checksum algorithm gem, credit card generation and validation
+
+
+== Usage
+
+While credit card validation routines abound, it's still nice have a window open and 
+crank out test cards during web development:
+
+  $ irb -rubygems -r luhn
+  irb(main):001:0> Luhn.generate  
+  => "4354135477199499" # defaults to :visa, but also can be in [:mast,:disc,:amex]
+  irb(main):002:0> Luhn.generate(:visa)
+  => "4076900550063889"
+
+Of course if you just want the Luhn checksum, you can do:
+
+  Luhn.checksum("1234321") # => 4
+
+To validate the checksum of a decimal string (as opposed to the full-context validity)
+
+  Luhn.checksum_valid?("1234321")          # => false
+  Luhn.checksum_valid?("4076900550063889") # => true
+  Luhn.checksum_valid?("4076900550063888") # => false
+
+
+= Downloading
+
+Note: not yet registered as a rubyforge gem
+
+git://github.com/pliam/luhn_gem.git
+
+
+= Copying
+
+Copyright (c) 2008 John Pliam, released under the MIT license
