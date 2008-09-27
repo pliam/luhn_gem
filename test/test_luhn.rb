@@ -35,6 +35,14 @@ END
     end
   end
   
+  # test integer values
+  def test_integers
+    i = 5399968743187425
+    assert_equal 0, Luhn.checksum(i), "card: #{i} invalid"
+    i += 1
+    assert !Luhn.checksum_valid?(i), "card: #{i} invalid"
+  end
+    
   # check checksum validity of generated cards
   def test_generation
     %w{visa mast amex disc}.map{|str| str.to_sym}.each do |type|

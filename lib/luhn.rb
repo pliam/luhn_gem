@@ -3,17 +3,10 @@
 #
 class Luhn
   # returns the Luhn checksum 
-  def self.checksum(str)
-    a = str.split('').map{|c| c.to_i}.reverse
-    sum = 0
-    (0...a.length).each do |i|
-      if i % 2 == 0 # even indices
-        sum += a[i]
-      else          # odd indices
-        sum += (a[i]<5) ? 2*a[i] : 2*a[i]-9
-      end
-    end
-    sum % 10
+  def self.checksum(value)
+    value = value.to_s unless value.class == String
+    i = 0 # algorithm alternate between even/odd rounds
+    value.split('').map{|c| c.to_i}.reverse.inject{|sum, a| sum + ((i+=1)%2>0 ? (a<5 ? 2*a : 2*a-9) : a)} % 10
   end
 
   # a valid credit card number is one whose Luhn checksum = 0
@@ -34,7 +27,6 @@ class Luhn
     num += sprintf(fmt, (rand * 10**rem).to_i)
     # calculate the checksum if were to end in '0'
     chk = checksum(num+'0')
-    # puts "num = #{num}, chk = #{chk}"
     # correct to be 0 % 10 format
     num + ((10 - chk) % 10).to_s
   end
