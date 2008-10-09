@@ -1,6 +1,12 @@
 
 = CHANGELOG
 
+== Releases 0.4 (10), Thu Oct  9 00:15:39 PDT 2008
+
+* cleaned up the code, using inject instead of simpler loop (this is supposed to be faster)
+* allow either string or integer to be passed to checksum
+* added unit tests for integers
+
 
 == Releases 0.3 (5), Tue Sep 23 17:15:13 PDT 2008
 
