@@ -9,7 +9,7 @@ name              = "luhn"
 summary           = 'Luhn checksum algorithm, credit card generation and validation'
 author            = 'John Pliam'
 email             = 'john.pliam@gmail.com'
-version           = '0.3'
+version           = '0.4'
 
 desc 'Default: run tests.'
 task :default => ['test']
